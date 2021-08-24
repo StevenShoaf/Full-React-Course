@@ -3,46 +3,48 @@ import ReactDOM from "react-dom";
 
 // CSS
 import "./index.css";
+//setups variables
 
-//stateless functional component
-//always return JSX
-//return single element
+const firstBook = {
+  img: "https://m.media-amazon.com/images/I/71bLle0wLjS._AC_UY218_.jpg",
+  title: "Quantum Physics for Beginners",
+  author: "Carl J. Pratt",
+};
+
+const secondBook = {
+  img: "https://m.media-amazon.com/images/I/71t523cRsWL._AC_UY218_.jpg",
+  title: "Quantum Physics and The Power of the Mind",
+  author: "Samantha Goleman and Nancy Patterson",
+};
+
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      />
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
+      />
     </section>
   );
 }
 
-const Book = () => {
+const Book = (props) => {
+  //destructure props
+  const { img, title, author } = props;
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img src={img} />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
     </article>
   );
 };
-
-const Image = () => (
-  <img
-    src="https://m.media-amazon.com/images/I/71bLle0wLjS._AC_UY218_.jpg"
-    alt=""
-  />
-);
-
-const Title = () => <h1>Quantum Physics for Beginners</h1>;
-
-const Author = () => (
-  <h4 style={{ color: "#617d98", fontSize: "0.90rem", marginTop: "0.25rem" }}>
-    Carl J. Pratt
-  </h4>
-);
 
 //looking for what we are going to render and where to render its
 ReactDOM.render(<BookList />, document.getElementById("root"));
