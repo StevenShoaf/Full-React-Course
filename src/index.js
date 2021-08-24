@@ -24,7 +24,13 @@ function BookList() {
         img={firstBook.img}
         title={firstBook.title}
         author={firstBook.author}
-      />
+      >
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos
+          blanditiis ratione, qui labore suscipit accusantium aspernatur odio
+          minus nobis voluptates.
+        </p>
+      </Book>
       <Book
         img={secondBook.img}
         title={secondBook.title}
